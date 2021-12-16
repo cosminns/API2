@@ -1,0 +1,27 @@
+
+
+[{
+    "userEmail":"cosmin@yahoo.com",
+    "numberOfProducts":"2",
+    "idOfProducts" : [ "61bb7aa0c588c6c003a568e3", "61bb7aa0c588c6c003a568e6"],
+    "orderIsCompleted":false,
+    "ammount":"100"
+    
+},
+{
+    "userEmail":"cosmin.ns60@yahoo.com",
+    "numberOfProducts":"3",
+    "idOfProducts" : [ "61bb7aa0c588c6c003a568e3", "61bb7aa0c588c6c003a568e6","61bb7c5d2d52193d7e01f798"],
+    "orderIsCompleted":false,
+    "ammount":"100"
+    
+},
+{
+    "userEmail":"cosmin.ns69@yahoo.com",
+    "numberOfProducts":"3",
+    "idOfProducts" : [ "61bb7aa0c588c6c003a568e3", "61bb7aa0c588c6c003a568e6","61bb7c5d2d52193d7e01f798"],
+    "orderIsCompleted":false,
+    "ammount":"100"
+    
+}
+]

@@ -1,0 +1,47 @@
+
+
+[{
+    "_id":"61bb7aa0c588c6c003a568e3",
+    "name":"Face Mask",
+    "description":"A face mask used for face",
+    "price":"100",
+    "brand":"1",
+    "ingrediends":"Water , banana, paper",
+    "typeOfProduct":"1",
+    "isInStock":true,
+    "photo":"facemask.jpg"
+},
+{
+    "_id":"61bb7aa0c588c6c003a568e6",
+    "name":"Parfume",
+    "description":"A Parfume",
+    "price":"100",
+    "brand":"2",
+    "ingrediends":"Water , banana, paper",
+    "typeOfProduct":"1",
+    "isInStock":true,
+    "photo":"parfume.jpg"
+},
+{
+    "_id":"61bb7c5d2d52193d7e01f798",
+    "name":"water",
+    "description":"A water",
+    "price":"10",
+    "brand":"3",
+    "ingrediends":"Water, paper",
+    "typeOfProduct":"1",
+    "isInStock":false,
+    "photo":"water.jpg"
+},
+{
+    "name":"phone",
+    "description":"A phone",
+    "price":"99",
+    "brand":"3",
+    "ingrediends":"Water, paper,metal",
+    "typeOfProduct":"1",
+    "isInStock":false,
+    "photo":"phone.jpg"
+}
+
+]
