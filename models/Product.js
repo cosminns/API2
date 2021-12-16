@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+const slugify=require('slugify');
 const ProductSchema= new mongoose.Schema({
     name:{
         type:String,
@@ -7,6 +8,7 @@ const ProductSchema= new mongoose.Schema({
         maxlength:[50, 'Name can not be more than 100 characters']
 
     },
+    //More user friendly URL for the front end 
     slug: String,
     description:{
         type:String,
@@ -44,5 +46,15 @@ const ProductSchema= new mongoose.Schema({
 
     }
     
+});
+// Create product slug from the name
+//ProductSchema.pre is going to run before the opperation, for when the document is saved
+// It needs to pass next and also to call next();
+ProductSchema.pre('save', function(next){
+    //options for slugify lower:true(all lower casse)
+    this.slug=slugify(this.name,{lower:true});
+    next();
+
+
 });
 module.exports=mongoose.model('Product',ProductSchema);
