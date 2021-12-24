@@ -7,7 +7,7 @@ const ErrorResponse=require('../utils/errorResponse');
 exports.getOrders=async(req,res,next)=>{
     try {
         console.log(req.query);
-        const orders= await Order.find(req.query).populate('idOfProducts');
+        const orders= await Order.find(req.query).populate(['idOfProducts','userId']);
         res.status(200).json({succes:true,count:orders.length, data:orders})
     } catch (error) {
         next(error);

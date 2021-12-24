@@ -1,7 +1,7 @@
 
 
 [{
-    "userEmail":"cosmin@yahoo.com",
+    "userId":"61bc15641196ff1456a62ac7",
     "numberOfProducts":"2",
     "idOfProducts" : [ "61bb7aa0c588c6c003a568e3", "61bb7aa0c588c6c003a568e6"],
     "orderIsCompleted":false,
@@ -9,7 +9,7 @@
     
 },
 {
-    "userEmail":"cosmin.ns60@yahoo.com",
+    "userId":"61bc15641196ff1456a62ac7",
     "numberOfProducts":"3",
     "idOfProducts" : [ "61bb7aa0c588c6c003a568e3", "61bb7aa0c588c6c003a568e6","61bb7c5d2d52193d7e01f798"],
     "orderIsCompleted":false,
@@ -17,7 +17,7 @@
     
 },
 {
-    "userEmail":"cosmin.ns69@yahoo.com",
+    "userId":"61bc15641196ff1456a62ac7",
     "numberOfProducts":"3",
     "idOfProducts" : [ "61bb7aa0c588c6c003a568e3", "61bb7aa0c588c6c003a568e6","61bb7c5d2d52193d7e01f798"],
     "orderIsCompleted":false,
