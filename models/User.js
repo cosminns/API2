@@ -1,48 +1,63 @@
 const mongoose=require('mongoose');
-
-const OrderSchema= new mongoose.Schema({
-    userEmail:{
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { JsonWebTokenError } = require('jsonwebtoken');
+const UserSchema= new mongoose.Schema({
+    email:{
         type:String,
         required:[true, 'Please add a email'],
         match:[/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             , 'Please add a valid email'],
         unique:true,
-        maxlength:[100, 'Email can not be more than 100 characters']
+       
 
     },
     
     password:{
         type:String,
         required:[true, 'Please add a password'],
-        maxlength:[600, 'Password can not be more than 100 characters']
+        minlength:[6, 'Password can not be less than 6 characters'],
+        select: false
     },
+    resetPasswordToken: String ,
+    resetPasswordExpire:Date,
     name:{
         type:String,
         required:[true,'Please add a name']
     },
     address:
     {
-        typer:String,
+        type:String,
         required:[true,'Please add a address'],
 
     },
     
-    isAdmin:{
-        type:Boolean,
-        default:false
+    role:{
+        type:String,
+        enum:['user','admin'],
+        default:'user'
 
     },
    
-    
+    createdAt:{
+        type:Date,
+        default:Date.now
+    }
 });
-// Create product slug from the name
-//ProductSchema.pre is going to run before the opperation, for when the document is saved
-// It needs to pass next and also to call next();
-ProductSchema.pre('save', function(next){
-    //options for slugify lower:true(all lower casse)
-    this.slug=slugify(this.name,{lower:true});
-    next();
-
-
+//Encrypt password ussing bcrypt
+UserSchema.pre('save', async function(next){
+const salt= await bcrypt.genSalt(10);
+this.password=await bcrypt.hash(this.password,salt);
 });
-module.exports=mongoose.model('Product',ProductSchema);
+//Sign JWT and return
+UserSchema.methods.getSignedJwtToken=function(){
+    return jwt.sign({id:this._id},process.env.JWT_SECRET,{
+        expiresIn:process.env.JWT_EXPIRE
+    });
+}
+//Match user entered password to hashed password in database
+UserSchema.methods.matchPassword=async function(enteredPassword){
+    return await bcrypt.compare(enteredPassword,this.password);
+}
+
+module.exports=mongoose.model('User',UserSchema);
