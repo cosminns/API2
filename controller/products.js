@@ -7,7 +7,7 @@ const asyncHandler=require('../middleware/async');
 //access Public
 exports.getProducts=async(req,res,next)=>{
     try {
-        console.log(req.query);
+        
         const products= await Product.find(req.query);
         res.status(200).json({succes:true,count:products.length, data:products})
     } catch (error) {

@@ -19,7 +19,7 @@ if(req.headers.authorization&&req.headers.authorization.startsWith('Bearer'))
 
 //make sure token exists
 if(!token){
-    return next(new ErrorReponse("Not Authorize to access this route",401));
+    return next(new ErrorReponse("Not Authorized to access this route",401));
 
 }
 try{
@@ -30,7 +30,7 @@ try{
     next();
 }
 catch(err){
-    return next(new ErrorReponse("Not Authorize to access this route",401));
+    return next(new ErrorReponse("Not Authorized to access this route",401));
 
 }
 });
